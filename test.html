@@ -1,0 +1,93 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Typing test </title>
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  </head>
+  <body>
+    <div class="jumbotron">
+        <h1>Typing test</h1>
+    </div>
+    <form class="form-inline">
+  <div class="form-group">
+    <label for="input">Describe your level</label>
+    <label class="radio-inline" id="input">
+  <input type="radio" name="sme" id="inlineRadio1" value="Begineer" onClick="s()"> Begineer
+</label>
+<label class="radio-inline">
+  <input type="radio" name="sme" id="inlineRadio2" value="Novice" onClick="m()"> Novice
+</label>
+<label class="radio-inline">
+  <input type="radio" name="sme" id="inlineRadio3" value="Expert" onClick="e()"> Expert
+</label>
+  </div>
+  <br>
+  <button type="button" class="btn btn-default" onclick="beginIt()">BEGIN</button>
+
+</form>
+<textarea class="form-control" id="given" cols=53 rows=3 wrap=on onFocus="cheat()"></textarea>
+<br>
+<textarea class="form-control" id="typed" cols=53 rows=3 ></textarea>
+<br>
+<input type=button value="DONE"  class="btn btn-default" name="stop"  onClick="stopIt()"></center>
+
+
+ <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script>
+    function s(){
+msg = new Array("I love chocopie and i dont know what i am typing" , "Austrlia is a commonwealth nation mate. Greenland is in denmark","i love icecream,pizza");
+
+
+}
+function m(){
+    msg=new Array("Peru,Bolivia,Brazil are in south america","Russia,China,India and South Africa are the BRICS Nations","the world is not all sunshine and rainbows");
+}
+function e(){
+    msg=new Array("Mythical sea monsters often adorn medieval and renaissance maps","Australia is an island nation myfriend","I love to drink water");
+
+}
+function beginIt()
+{
+    var a = Math.floor(Math.random()*10)%3;
+    document.getElementById("given").value=msg[a];
+    start = new Date();
+    start_time = start.getTime();
+}
+function cheat()
+{
+    alert("You cannot change");
+}
+function stopIt()
+{
+    word1 = document.getElementById("given").value;
+    word = word1.length;
+    end = new Date();
+    end_time=end.getTime();
+    totaltime=(end_time-start_time)/1000;
+    if(document.getElementById("given").value == document.getElementById("typed").value)
+    {
+        alert("correct at "+ (word/totaltime) +"wps");
+    }
+    else
+    {
+        alert("incorrect at "+ (word/totaltime) +"wps");
+    }
+}
+    </script>
+  </body>
+</html>
